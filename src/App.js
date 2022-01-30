@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './App.css';
-import { HomePage } from './components/Home.page';
-import { RQSuperHeroesPage } from './components/RQSuperHeroes.page';
-import { SuperHeroesPage } from './components/SuperHeroes.page';
+import HomePage from './components/Home.page';
+import RQSuperHeroesPage from './components/RQSuperHeroes.page';
+import SuperHeroesPage from './components/SuperHeroes.page';
 
 function App() {
   return (
@@ -22,15 +22,9 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path='/super-heroes'>
-            <SuperHeroesPage />
-          </Route>
-          <Route path='/rq-super-heroes'>
-            <RQSuperHeroesPage />
-          </Route>
-          <Route path='/'>
-            <HomePage />
-          </Route>
+          <Route path='/super-heroes' element={<SuperHeroesPage />} />
+          <Route path='/rq-super-heroes' element={<RQSuperHeroesPage />} />
+          <Route path='/' element={<HomePage />} />
         </Routes>
       </div>
     </Router>

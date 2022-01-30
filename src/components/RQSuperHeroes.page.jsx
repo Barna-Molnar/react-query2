@@ -9,7 +9,16 @@ const fetchDataWithAxios = async () => {
 const RQSuperheroes = () => {
 
 
-    const { data, isLoading, error, isError } = useQuery(['superheros'], fetchDataWithAxios);
+    const { data, isLoading, error, isError } = useQuery(
+        ['superheros'],
+
+        fetchDataWithAxios,
+        {
+            // cacheTime: 50000, =>  this is the default value 
+            // staleTime: 30000, => to reduce the request if you know that your data don't change often 
+        }
+
+    );
 
 
     if (isLoading) return <h1>Data is being fetched....</h1>;

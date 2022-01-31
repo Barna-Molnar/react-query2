@@ -4,6 +4,8 @@ import HomePage from './components/Home.page';
 import RQSuperHeroesPage from './components/RQSuperHeroes.page';
 import SuperHeroesPage from './components/SuperHeroes.page';
 
+// NOTE: Start you json-server in order to get data npm run serve-json
+
 function App() {
   return (
     <Router>

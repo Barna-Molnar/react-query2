@@ -18,7 +18,7 @@ const SingleSuperHeroPage = () => {
     return (
         <>
             <h1>
-                Super hero details
+                {data.data.name}'s details
             </h1>
             {!isLoading && (
                 <>

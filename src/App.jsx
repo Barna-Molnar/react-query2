@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './App.css';
 import HomePage from './components/Home.page';
 import RQSuperHeroesPage from './components/RQSuperHeroes.page';
+import SingleSuperHeroPage from './components/SingleSuperHeroPage';
 import SuperHeroesPage from './components/SuperHeroes.page';
 
 // NOTE: Start you json-server in order to get data npm run serve-json
@@ -24,6 +25,7 @@ function App() {
           </ul>
         </nav>
         <Routes>
+          <Route path='/rq-super-heroes/:heroId' element={<SingleSuperHeroPage />} />
           <Route path='/super-heroes' element={<SuperHeroesPage />} />
           <Route path='/rq-super-heroes' element={<RQSuperHeroesPage />} />
           <Route path='/' element={<HomePage />} />

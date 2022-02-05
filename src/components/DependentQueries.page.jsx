@@ -19,7 +19,10 @@ const DependentQueriesPage = ({ email }) => {
 
     const { isLoading, data } = useQuery(
         ['courses', userChannelId],
-        () => fetchCoursesById(userChannelId)
+        () => fetchCoursesById(userChannelId),
+        {
+            enabled: !!userChannelId // NOTE: we say that fetch the data only if the channel id is exists / have already fetched and got
+        }
     );
 
     if (!isLoading) console.log(data);

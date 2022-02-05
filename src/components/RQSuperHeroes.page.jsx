@@ -23,7 +23,7 @@ const RQSuperheroes = () => {
 
     const options = {
         options: { onError, onSuccess, refetchInterval },
-        cache: 'heroes'
+        cache: 'super-heroes'
     };
 
     const { data, isLoading, error, isError, refetch, isFetching } = useSuperHeroesData(options);

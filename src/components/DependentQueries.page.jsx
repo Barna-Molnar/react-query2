@@ -16,6 +16,7 @@ const DependentQueriesPage = ({ email }) => {
         () => fetchUserByEmail(email)
     );
     const userChannelId = user?.data.channelId;
+    console.log(userChannelId);
 
     const { isLoading, data } = useQuery(
         ['courses', userChannelId],
@@ -27,9 +28,12 @@ const DependentQueriesPage = ({ email }) => {
 
     if (!isLoading) console.log(data);
 
-    return <div>{data.data.courses.map(course => (
-        <div key={course}>Name of course: <strong>{course.toUpperCase()}</strong></div>
-    ))}</div>;
+    return <>
+        <h1>DependentQueriesPage</h1>
+        <div>{data?.data.courses.map(course => (
+            <div key={course}>Name of course: <strong>{course.toUpperCase()}</strong></div>
+        ))}</div>;
+    </>;
 };
 
 export default DependentQueriesPage;

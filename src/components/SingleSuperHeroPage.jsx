@@ -6,13 +6,7 @@ const SingleSuperHeroPage = () => {
 
     const params = useParams();
 
-
-    const options = {
-        cache: "singleHero",
-        id: params.heroId
-    };
-
-    const { isLoading, data } = useSingleSuperHeroData(options);
+    const { isLoading, data } = useSingleSuperHeroData(params.heroId);
 
     if (isLoading) {
         return <h1>Data is being fetched</h1>;

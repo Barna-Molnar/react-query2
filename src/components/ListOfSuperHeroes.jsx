@@ -15,7 +15,7 @@ const ListOfSuperHeroes = () => {
             enabled: false,
             refetchOnMount: false
         },
-        id: 'listOfHeroes'
+        cache: 'listOfHeroes'
 
     };
 

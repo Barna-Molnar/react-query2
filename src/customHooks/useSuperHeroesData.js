@@ -2,7 +2,7 @@ import axios from "axios";
 import { useQuery } from "react-query";
 
 const fetchDataWithAxios = async () => {
-    const data = await axios.get('http://localhost:4000/superheroes');
+    const data = await axios.get(`http://localhost:4000/superheroes`);
     return data;
 };
 
@@ -11,7 +11,7 @@ export const useSuperHeroesData = (props) => {
 
 
     return useQuery(
-        [props.id],
+        [props.cache],
 
         fetchDataWithAxios,
         {

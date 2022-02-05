@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useSuperHeroesData } from "../customHooks/useSuperHeroesData";
 import ListOfSuperHeroes from "./ListOfSuperHeroes";
+import { Link, useNavigate } from 'react-router-dom';
 
 const RQSuperheroes = () => {
+
+    const navigate = useNavigate();
 
     const [refetchInterval, setRefetchInterval] = useState(3000);
 
@@ -20,7 +23,7 @@ const RQSuperheroes = () => {
 
     const options = {
         options: { onError, onSuccess, refetchInterval },
-        id: 'heroes'
+        cache: 'heroes'
     };
 
     const { data, isLoading, error, isError, refetch, isFetching } = useSuperHeroesData(options);
@@ -36,14 +39,12 @@ const RQSuperheroes = () => {
         </button>
         {data?.data.map((hero) => (
             <div key={hero.id}>
-                Name : {hero.name}
-                <br />
-                Alterego: {hero.alterEgo}
-                <br />
-                <br />
+                <Link to={`${hero.id}`}>
+                    Name : {hero.name}
+                </Link>
             </div>
         ))}
-        <ListOfSuperHeroes />
+        {/* <ListOfSuperHeroes /> */}
     </div>;
 
 };

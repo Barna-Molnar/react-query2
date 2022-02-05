@@ -4,6 +4,7 @@ import HomePage from './components/Home.page';
 import RQSuperHeroesPage from './components/RQSuperHeroes.page';
 import SingleSuperHeroPage from './components/SingleSuperHeroPage';
 import SuperHeroesPage from './components/SuperHeroes.page';
+import ParallelQueriesPage from './components/ParallelQueries.page';
 
 // NOTE: Start you json-server in order to get data npm run serve-json
 
@@ -26,6 +27,7 @@ function App() {
         </nav>
         <Routes>
           <Route path='/rq-super-heroes/:heroId' element={<SingleSuperHeroPage />} />
+          <Route path='/rq-parallel' element={<ParallelQueriesPage />} />
           <Route path='/super-heroes' element={<SuperHeroesPage />} />
           <Route path='/rq-super-heroes' element={<RQSuperHeroesPage />} />
           <Route path='/' element={<HomePage />} />

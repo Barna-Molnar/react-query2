@@ -5,6 +5,7 @@ import RQSuperHeroesPage from './components/RQSuperHeroes.page';
 import SingleSuperHeroPage from './components/SingleSuperHeroPage';
 import SuperHeroesPage from './components/SuperHeroes.page';
 import ParallelQueriesPage from './components/ParallelQueries.page';
+import DynamicParallelPage from './components/DynamicParallel.page';
 
 // NOTE: Start you json-server in order to get data npm run serve-json
 
@@ -26,6 +27,7 @@ function App() {
           </ul>
         </nav>
         <Routes>
+          <Route path='/rq-dynamic-parallel' element={<DynamicParallelPage heroIds={[1, 3]} />} />
           <Route path='/rq-super-heroes/:heroId' element={<SingleSuperHeroPage />} />
           <Route path='/rq-parallel' element={<ParallelQueriesPage />} />
           <Route path='/super-heroes' element={<SuperHeroesPage />} />

@@ -39,6 +39,11 @@
       "name": "Green Arrow",
       "alterEgo": "Oliver Queen",
       "id": 8
+    },
+    {
+      "name": "CatWoman",
+      "alterEgo": "Seline Kyle",
+      "id": 9
     }
   ],
   "friends": [

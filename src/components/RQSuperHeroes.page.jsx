@@ -22,11 +22,8 @@ const RQSuperheroes = () => {
         };
     };
 
-    const options = {
-        options: { onError, onSuccess, refetchInterval },
-        cache: 'super-heroes'
-    };
-    const { data, isLoading, error, isError, refetch, isFetching } = useSuperHeroesData(options);
+
+    const { data, isLoading, error, isError, refetch, isFetching } = useSuperHeroesData(onError, onSuccess);
 
     const { mutate: addHero } = useAddSuperHeroData();
     const handleAddHeroClick = () => {

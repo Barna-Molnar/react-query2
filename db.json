@@ -29,6 +29,16 @@
       "name": "The Flash",
       "alterEgo": "Berry Allen",
       "id": 6
+    },
+    {
+      "name": "Thor",
+      "alterEgo": "Thor",
+      "id": 7
+    },
+    {
+      "name": "Green Arrow",
+      "alterEgo": "Oliver Queen",
+      "id": 8
     }
   ],
   "friends": [

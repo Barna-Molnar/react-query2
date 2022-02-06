@@ -1,18 +1,19 @@
 import axios from "axios";
-import { useQuery, useMutation } from "react-query";
+import { useQuery, useMutation, useQueryClient } from "react-query";
 
 const fetchDataWithAxios = async () => {
     const data = await axios.get(`http://localhost:4000/superheroes`);
     return data;
 };
 
-export const useSuperHeroesData = (props) => {
+export const useSuperHeroesData = ({ onSucces, onError }) => {
     return useQuery(
-        [props.cache],
+        ['super-heroes'],
 
         fetchDataWithAxios,
         {
-            ...props.options
+            onSucces,
+            onError
             // cacheTime: 50000, =>  this is the default value 
             // staleTime: 30000, => to reduce the request if you know that your data don't change often 
             // refetchOnMount: true // => default query will refetch the data 
@@ -38,7 +39,23 @@ const addSuperHero = (hero) => {
 
 export const useAddSuperHeroData = () => {
 
-    return useMutation(addSuperHero);
+    const queryClient = useQueryClient();
+
+    return useMutation(
+        addSuperHero,
+        {
+            onSuccess: (data) => {
+
+                // queryClient.invalidateQueries('super-heroes'); // NOTE: this couses an additional network call 
+                queryClient.setQueryData('super-heroes', (oldQueryDataInCache) => {
+                    return {
+                        ...oldQueryDataInCache,
+                        data: [...oldQueryDataInCache.data, data.data]
+                    };
+                });
+            },
+        },
+    );
 
 
 };

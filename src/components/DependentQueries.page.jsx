@@ -30,9 +30,11 @@ const DependentQueriesPage = ({ email }) => {
 
     return <>
         <h1>DependentQueriesPage</h1>
-        <div>{data?.data.courses.map(course => (
-            <div key={course}>Name of course: <strong>{course.toUpperCase()}</strong></div>
-        ))}</div>;
+        <div>
+            {data?.data.courses.map(course => (
+                <div key={course}>Name of course: <strong>{course.toUpperCase()}</strong></div>
+            ))}
+        </div>
     </>;
 };
 
